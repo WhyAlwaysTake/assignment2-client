@@ -9,7 +9,7 @@ const Home = () => {
     const [table, setTable] = useState("");
 
     const loadData = async () => {
-        const response = await axios.get(`https://server-commit.herokuapp.com/api/get/${table}`);
+        const response = await axios.get(`http://localhost:4000/api/get/${table}`);
         setData(response.data);
     };
 
@@ -17,7 +17,7 @@ const Home = () => {
 
     const deleteContact = (table, info) => {
         if(window.confirm("Are you sure to delete?")){
-            axios.delete(`https://server-commit.herokuapp.com/api/remove/${table}/${info}`);
+            axios.delete(`http://localhost:4000/api/remove/${table}/${info}`);
             toast.success("Data is deleted");
             setTimeout(() => loadData(), 300);
         }   
